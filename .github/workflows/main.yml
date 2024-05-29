@@ -25,7 +25,7 @@ jobs:
       
       - name: SonarCloud Scan
         run: mvn -B verify sonar:sonar -Dsonar.projectKey=nathdev_nathdev-project -Dsonar.organization=NathDev-Project -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} --file backend-api/simple-api-student/pom.xml
-
+ 
   build-and-push-docker-image:
     needs: test-backend
     runs-on: ubuntu-22.04
