@@ -21,7 +21,7 @@ jobs:
           distribution: 'temurin' # Ajouter cette ligne pour spécifier la distribution
           
       - name: Build and test with Maven
-        run: mvn clean verify
+        run: mvn clean verify --file devops/backend-api/simple-api-student/pom.xml
       
       - name: SonarCloud Scan
         run: mvn -B verify sonar:sonar -Dsonar.projectKey=devops-2024 -Dsonar.organization=devops-school -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} --file devops/backend-api/simple-api-student/pom.xml
