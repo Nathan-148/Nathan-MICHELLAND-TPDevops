@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'temurin' # Ajouter cette ligne pour spécifier la distribution
+          distribution: 'temurin'
           
       - name: Build and test with Maven
         run: mvn clean verify --file backend-api/simple-api-student/pom.xml

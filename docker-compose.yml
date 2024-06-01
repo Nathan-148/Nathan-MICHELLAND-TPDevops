@@ -4,36 +4,27 @@ services:
     backend:
         container_name: backend-api
         build: ./backend-api/simple-api-student
-        #TODO
         networks: 
         - app-network
-        #TODO
         depends_on:
         - database
-        #TODO
 
     database: 
         container_name: my_postgrey_app
         build: ./database
-        #TODO
         networks: 
         - app-network
-        #TODO
 
     httpd:
         container_name : frontend_app
         build: ./frontend-api
-        #TODO
         ports: 
         - "8082:80"
-        #TODO
         networks: 
         - app-network
-        #TODO
         depends_on:
         - database
         - backend
-        #TODO
 
 networks:
     app-network:
