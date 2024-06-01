@@ -1,9 +1,9 @@
 
-#### TP 1
+# TP 1
 
-### DATABASE
+## DATABASE
 
-# Dockerfile :
+### Dockerfile :
 ```dockerfile
 FROM postgres:14.1-alpine
 
@@ -14,7 +14,7 @@ ENV POSTGRES_DB=db \
 COPY ./sql-scripts/* /docker-entrypoint-initdb.d
 ```
 
-# Command :
+### Command :
 ```bash 
 docker pull adminer
 ```
@@ -39,9 +39,9 @@ docker run -d --name adminer --network app-network -p 8090:8080 adminer
 
 
 
-### BACKEND-API
+## BACKEND-API
 
-## Dockerfile for multistage build:
+### Dockerfile for multistage build:
 ```dockerfile
 # Build
 FROM maven:3.8.6-amazoncorretto-17 AS myapp-build
@@ -78,15 +78,15 @@ docker run --name simple-api-student -p 8080:8080 --network app-network tpdevops
 ```
 
 
-## Question :
+### Question :
 Multistage builds help in creating optimized Docker images by separating the build environment from the runtime environment, reducing the final image size and improving security
 
 
 
 
-### HTTP Server
+## HTTP Server
 
-# Dockerfile :
+### Dockerfile :
 ```dockerfile
 FROM httpd:2.4
 COPY ./index.html /usr/local/apache2/htdocs/
@@ -112,7 +112,7 @@ Copy the configuration to httpd.conf file:
 docker cp httpd.conf my-http-server:/usr/local/apache2/conf/httpd.conf
 ```
 
-## Question 
+### Question 
 We require a reverse proxy to direct client requests to the correct backend service, improve security, facilitate load balancing, and offer a unified entry point for the application.
 
 
@@ -157,28 +157,28 @@ Run:
 docker compose up
 ```
 
-## Question 
+### Question 
 Docker Compose is crucial because it simplifies the management of multi-container Docker applications, allowing for easy setup and consistency across different environments with a single configuration file. This makes it indispensable for deploying complex applications seamlessly.
 
-### Publication 
+## Publication 
 
 ## Question 
 We've stored our images in a web-based repository to facilitate simple distribution, version control, and deployment among various environments and team members. This approach guarantees uniform and reproducible setups.
 
 
 
-#### TP 2
+# TP 2
 
 At this time my work was on local on my PC so i had to push it on my github repository to test it.
 
-### Test the app
+## Test the app
 
-## Command bash :
+### Command bash :
 ```bash
 mvn clean verify --file simple-api-student/pom.xml
 ```
 
-## main.yml file :
+### main.yml file :
 ```yml
 name: CI devops 2024
 on:
@@ -231,7 +231,7 @@ jobs:
           tags: ${{secrets.USERNAME}}/tpdevops-frontend-api:latest
 ```
 
-## Question
+### Question
 Testcontainers are a Java library that uses Docker to create disposable instances for integration tests, ensuring tests are isolated and repeatable. It supports services like databases and web browsers, streamlining testing for applications with external dependencies.
 
 
